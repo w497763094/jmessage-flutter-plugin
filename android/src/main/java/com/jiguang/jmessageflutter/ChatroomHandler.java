@@ -159,14 +159,17 @@ class ChatRoomHandler {
                     return;
                 }
 
-                JSONObject result = new JSONObject();
-                try {
-                    result.put("roomId", roomId);
-                    result.put("conversation", toJson(conversation));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                callback.success(result);
+//                JSONObject result = new JSONObject();
+//                try {
+//                    result.put("roomId", roomId);
+//                    result.put("conversation", toJson(conversation));
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+                HashMap map=toJson(conversation);
+                map.put("roomId",roomId);
+                callback.success(map);
+//                callback.success(result);
             }
         });
     }
